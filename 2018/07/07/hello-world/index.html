@@ -12,7 +12,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
   
-    <meta name="keywords" content="forsigner,前端,设计,Hexo主题,前端开发,用户体验,设计,frontend,design,nodejs,JavaScript" />
+    <meta name="keywords" content="Life,Data,GrowthHack,SQL,Python,Java,LaTeX,Poems" />
   
 
   <meta name="description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
@@ -213,7 +213,7 @@
       
         <span>
           <i class="icon-comment"></i>
-          <a href="http://www.forsigner.com/2018/07/07/hello-world/#disqus_thread"></a>
+          <a href="https://theYuan.github.io/2018/07/07/hello-world/#disqus_thread"></a>
         </span>
       
 
@@ -256,14 +256,14 @@
         
           <li class="item">
             
-              <span>微信扫一扫</span>
+              <span>WeChat</span>
             
             <img src="/images/qr-wechat.png" alt="">
           </li>
         
           <li class="item">
             
-              <span>支付宝扫一扫</span>
+              <span>AliPay</span>
             
             <img src="/images/qr-alipay.png" alt="">
           </li>
@@ -434,6 +434,30 @@
     
     
 
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    <script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script>
+    <div id="comment" class="vcomment" ></div>
+    <script>
+        var notify = 'false' == true ? true : false;
+        var verify = 'false' == true ? true : false;
+        var GUEST_INFO = ['nick','mail','link'];
+        var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+            return GUEST_INFO.indexOf(item) > -1
+        });
+        guest_info = guest_info.length == 0 ? GUEST_INFO :guest_info;
+        window.valine = new Valine({
+            el: '.vcomment',
+            notify: notify,
+            verify: verify,
+            appId: "",
+            appKey: "",
+            avatar:'mm',
+            placeholder: "Just go go",
+            guest_info:guest_info,
+            pageSize:'10'
+        });
+    </script>
+  
   </div>
 
   
