@@ -5,18 +5,19 @@
   
 
   
-  <title>Tag: life | Zedd Yuan&#39;s Blog</title>
+  <title>Zedd Yuan&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Eternal sunshine of the splotless mind.">
-<meta property="og:type" content="website">
+  <meta name="description" content="Matlab 101 author: yuan Lecture 1 以矩阵为基本单位，无需预先指定矩阵维数（动态定维） Matlab和Maple相结合 使用工具箱 不要用 i, j 做变量名 eps:函数，可以得到浮点数的相对精度，也就是相邻两数之间的最小距离。  eps(le20) , ans=16384  %        As a result (le20+10)-le20 = 0  用ep">
+<meta property="og:type" content="article">
 <meta property="og:title" content="Zedd Yuan&#39;s Blog">
-<meta property="og:url" content="http://yoursite.com/tags/life/index.html">
+<meta property="og:url" content="http://yoursite.com/2018/09/03/Matlab/index.html">
 <meta property="og:site_name" content="Zedd Yuan&#39;s Blog">
-<meta property="og:description" content="Eternal sunshine of the splotless mind.">
+<meta property="og:description" content="Matlab 101 author: yuan Lecture 1 以矩阵为基本单位，无需预先指定矩阵维数（动态定维） Matlab和Maple相结合 使用工具箱 不要用 i, j 做变量名 eps:函数，可以得到浮点数的相对精度，也就是相邻两数之间的最小距离。  eps(le20) , ans=16384  %        As a result (le20+10)-le20 = 0  用ep">
 <meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2018-09-03T02:38:49.301Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Zedd Yuan&#39;s Blog">
-<meta name="twitter:description" content="Eternal sunshine of the splotless mind.">
+<meta name="twitter:description" content="Matlab 101 author: yuan Lecture 1 以矩阵为基本单位，无需预先指定矩阵维数（动态定维） Matlab和Maple相结合 使用工具箱 不要用 i, j 做变量名 eps:函数，可以得到浮点数的相对精度，也就是相邻两数之间的最小距离。  eps(le20) , ans=16384  %        As a result (le20+10)-le20 = 0  用ep">
 <meta name="twitter:creator" content="@www.twitter.com&#x2F;theyuan">
   
     <link rel="alternate" href="/atom.xml" title="Zedd Yuan&#39;s Blog" type="application/atom+xml">
@@ -64,40 +65,82 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main">
-  
-  
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2018" class="archive-year">2018</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2018/08/25/What-is-Water/" class="archive-article-date">
-  <time datetime="2018-08-25T13:43:09.000Z" itemprop="datePublished">Aug 25</time>
+        <section id="main"><article id="post-Matlab" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/09/03/Matlab/" class="article-date">
+  <time datetime="2018-09-03T00:44:01.027Z" itemprop="datePublished">2018-09-03</time>
 </a>
-      
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/08/25/What-is-Water/">What-is-Water</a>
-    </h1>
-  
-
-    </header>
+    
   </div>
-</article>
-  
-  
-    </div></section>
-  
+  <div class="article-inner">
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="Matlab-101"><a href="#Matlab-101" class="headerlink" title="Matlab 101"></a>Matlab 101</h1><hr>
+<p>author: yuan</p>
+<h2 id="Lecture-1"><a href="#Lecture-1" class="headerlink" title="Lecture 1"></a>Lecture 1</h2><ul>
+<li>以矩阵为基本单位，无需预先指定矩阵维数（动态定维）</li>
+<li>Matlab和Maple相结合</li>
+<li>使用工具箱</li>
+<li>不要用 <strong>i, j</strong> 做变量名</li>
+<li><strong>eps:</strong>函数，可以得到浮点数的相对精度，也就是相邻两数之间的最小距离。</li>
+</ul>
+<p><code>eps(le20) ,
+ans=16384 
+%        As a result</code></p>
+<p><code>(le20+10)-le20 = 0</code></p>
+<ul>
+<li>用eps代替0，可以避免0作分母的情况<pre>
+  function y = mysin(x)
+  % 实现与系统函数sinc 同样的功能 
+  % SINC sin(pi*x)/(pi*x) 
+  indexI = find(x==0);  
+  x(indexI)=eps(0)+x(indexI);
+  y = sin(pi*x)./(pi*x)
+</pre></li>
+<li>分号和续行符号<strong>…</strong></li>
+<li>字符串，二维字符串的时候，短的要用字符补齐。</li>
+<li><p>创建结构数组，可以用struct函数预分配一个结构数组<br><code>str_array = struct(&#39;field1&#39;,val1,&#39;field2&#39;,val2)</code></p>
+</li>
+<li><p>搞清楚.<em> 和 </em>，./和 /的区别。</p>
+</li>
+<li>转置符号 <strong>‘</strong> 涉及到复数要小心，因为这个符号其实是共轭转置。</li>
+<li>而 <strong>.’</strong> 才是转置，尽量用transpose(),ctranspose.%conjugate transpose</li>
+<li>脚本式的m文件和函数式的m文件。 </li>
+</ul>
 
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/09/03/Matlab/" data-id="cjql18uvc00052oi5ony7ywho" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2019/01/06/Lost_in_May/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          What-is-Water
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2018/08/25/What-is-Water/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">What-is-Water</div>
+    </a>
+  
+</nav>
+
+  
+</article>
 
 </section>
         
